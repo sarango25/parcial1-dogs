@@ -1,15 +1,19 @@
 package model;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import processing.core.PApplet;
+import processing.core.PConstants;
 
 public class Dog {
 
 	private int id, age;
 	private String name, breed, date;
 	private PApplet app;
-	private Date birthDate;
+	private LocalDate birthDate;
 
 	public Dog(int id, String date, String name, String breed, PApplet app) {
 		this.date = date;
@@ -18,10 +22,20 @@ public class Dog {
 		this.id = id;
 		this.name = name;
 
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
+		birthDate = LocalDate.parse(date, formatter);
+		Date today = new Date();
+		age = Period.between(birthDate, currentDate).getYears();
+
 	}
 
 	public void draw(int posY) {
-		app.text(0, 10, posY);
+		app.fill(255);
+		app.textAlign(PConstants.CENTER);
+		app.text(id, 75, posY);
+		app.text(name, 260, posY);
+		app.text(breed, 436, posY);
+		app.text(age, 614, posY);
 
 	}
 

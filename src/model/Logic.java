@@ -17,29 +17,37 @@ public class Logic {
 		this.text2 = text2;
 		this.app = app;
 		dogs = new ArrayList<Dog>();
-
+		combineLists();
 	}
 
 	public void combineLists() {
+
 		for (int i = 0; i < text1.length; i++) {
 			String[] info1 = text1[i].split(" ");
 			int id = Integer.parseInt(info1[0]);
 			String name = info1[1];
-			
+
 			for (int j = 0; j < text2.length; j++) {
-				String[]info2 = text2[i].split(" ");
-				int id1 = Integer.parseInt(info2 [0]);
+				String[] info2 = text2[j].split(" ");
+				int id1 = Integer.parseInt(info2[0]);
 				String breed = info2[1];
 				String date = info2[2];
-				
+
 				if (id == id1) {
-					Dog dog = new Dog (id,date,name,breed,app);
+
+					Dog dog = new Dog(id, date, name, breed, app);
 					dogs.add(dog);
-					
+
 				}
 			}
-			
-			
+
+		}
+	}
+
+	public void drawDogs() {
+		for (int i = 0; i < dogs.size(); i++) {
+
+			dogs.get(i).draw(150 + (100 * i));
 		}
 	}
 

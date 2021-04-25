@@ -3,6 +3,7 @@ package view;
 import view.Main;
 import controller.ControllerMain;
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Main extends PApplet {
 
@@ -10,6 +11,7 @@ public class Main extends PApplet {
 	
 	private String[] text1;
 	private String[] text2;
+	PImage screen;
 
 	public Main() {
 		// TODO Auto-generated constructor stub
@@ -28,6 +30,7 @@ public class Main extends PApplet {
 
 		text1 = loadStrings("Data/Text1.txt");
 		text2 = loadStrings("Data/Text2.txt");
+		screen = loadImage("Images/Interface.png");
 		
 		controllerMain = new ControllerMain(text1,text2,this);
 
@@ -35,9 +38,13 @@ public class Main extends PApplet {
 
 	public void draw() {
 		background(0);
-
+		image(screen,0,0);
+		textSize(16);
+		controllerMain.drawDogs();
+		text(mouseX+","+mouseY,mouseX,mouseY);
 		
 	}
+	
 	
 
 }
