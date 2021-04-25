@@ -85,4 +85,9 @@ public class Dog implements Comparable<Dog>{
 		return id - o.id;
 	}
 
+	public String saveText() {
+		// TODO Auto-generated method stub
+		return id +" "+ name +" "+ breed +" "+ age;
+	}
+
 }

@@ -62,24 +62,46 @@ public class Logic {
 	}
 
 	public void sortDogs(char keytosort) {
+		
+		String[] export= new String [dogs.size()];
+		String savename="";
+		
 		switch (keytosort) {
 
 		case 'a':
 			Collections.sort(dogs);
+			savename = "dogsdataid";
+			for (int i = 0; i < dogs.size(); i++) {
+                export[i]= dogs.get(i).saveText();
+            }
+
 			break;
 
 		case 's':
 			Collections.sort(dogs,sortName);
+			savename = "dogsdataname";
+			for (int i = 0; i < dogs.size(); i++) {
+                export[i]= dogs.get(i).saveText();
+            }
 			break;
 
 		case 'd':
 			Collections.sort(dogs,sortBreed);
+			savename = "dogsdatabreed";
+			for (int i = 0; i < dogs.size(); i++) {
+                export[i]= dogs.get(i).saveText();
+            }
 			break;
 
 		case 'f':
 			Collections.sort(dogs,sortAge);
+			savename = "dogsdataage";
+			for (int i = 0; i < dogs.size(); i++) {
+                export[i]= dogs.get(i).saveText();
+            }
 			break;
 		}
+		app.saveStrings("Export/"+savename+".txt", export);
 
 	}
 

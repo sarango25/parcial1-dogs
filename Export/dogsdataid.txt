@@ -1,0 +1,5 @@
+1 Martina Labrador-retriever 2
+2 Kaiser Pastor-alemán 10
+3 Heisenberg Bulldog 2
+4 Lola Rottweiler 0
+5 Nymeria Husky-siberiano 4

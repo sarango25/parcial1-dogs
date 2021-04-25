@@ -41,7 +41,7 @@ public class Main extends PApplet {
 		image(screen,0,0);
 		textSize(16);
 		controllerMain.drawDogs();
-		text(mouseX+","+mouseY,mouseX,mouseY);
+		//text(mouseX+","+mouseY,mouseX,mouseY);
 		
 	}
 	public void keyPressed() {
