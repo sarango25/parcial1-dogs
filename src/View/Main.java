@@ -1,6 +1,14 @@
-package View;
+package view;
 
-public class Main {
+import controller.ControllerMain;
+import processing.core.PApplet;
+
+public class Main extends PApplet {
+
+	ControllerMain controllerMain;
+	private String[] text1;
+	private String[] text2;
+	
 
 	public Main() {
 		// TODO Auto-generated constructor stub
