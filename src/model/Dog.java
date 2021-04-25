@@ -1,21 +1,28 @@
 package model;
 
+import java.util.Date;
+
 import processing.core.PApplet;
 
-public class Dog implements Comparable<Dog> {
+public class Dog {
 
 	private int id, age;
-	private String name, breed;
+	private String name, breed, date;
 	private PApplet app;
-	// private Date birthDate;
+	private Date birthDate;
 
-	public Dog(int id, int age, String name, String breed, PApplet app) {
-		this.age = age;
+	public Dog(int id, String date, String name, String breed, PApplet app) {
+		this.date = date;
 		this.app = app;
 		this.breed = breed;
 		this.id = id;
 		this.name = name;
-		// this.birthDate = birthDate;
+
+	}
+
+	public void draw(int posY) {
+		app.text(0, 10, posY);
+
 	}
 
 	public int getId() {
@@ -56,12 +63,6 @@ public class Dog implements Comparable<Dog> {
 
 	public void setApp(PApplet app) {
 		this.app = app;
-	}
-
-	@Override
-	public int compareTo(Dog nextDog) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }
