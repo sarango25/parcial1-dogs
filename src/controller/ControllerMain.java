@@ -15,4 +15,9 @@ public class ControllerMain {
 		logic.drawDogs();
 	}
 
+	public void sort(char key) {
+		logic.sortDogs(key);
+		
+	}
+
 }

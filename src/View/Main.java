@@ -44,6 +44,9 @@ public class Main extends PApplet {
 		text(mouseX+","+mouseY,mouseX,mouseY);
 		
 	}
+	public void keyPressed() {
+		controllerMain.sort(key);
+	}
 	
 	
 

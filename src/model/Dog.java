@@ -8,7 +8,7 @@ import java.util.Date;
 import processing.core.PApplet;
 import processing.core.PConstants;
 
-public class Dog {
+public class Dog implements Comparable<Dog>{
 
 	private int id, age;
 	private String name, breed, date;
@@ -24,8 +24,8 @@ public class Dog {
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
 		birthDate = LocalDate.parse(date, formatter);
-		Date today = new Date();
-		age = Period.between(birthDate, currentDate).getYears();
+		LocalDate today = LocalDate.now();
+		age = Period.between(birthDate,today).getYears();
 
 	}
 
@@ -77,6 +77,12 @@ public class Dog {
 
 	public void setApp(PApplet app) {
 		this.app = app;
+	}
+
+	@Override
+	public int compareTo(Dog o) {
+		// TODO Auto-generated method stub
+		return id - o.id;
 	}
 
 }

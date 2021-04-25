@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import processing.core.PApplet;
 
@@ -12,12 +13,21 @@ public class Logic {
 	private String[] text2;
 	private ArrayList<Dog> dogs;
 
+	private DogNameCompare sortName;
+	private DogBreedCompare sortBreed;
+	private DogAgeCompare sortAge;
+
 	public Logic(String[] text1, String[] text2, PApplet app) {
 		this.text1 = text1;
 		this.text2 = text2;
 		this.app = app;
 		dogs = new ArrayList<Dog>();
 		combineLists();
+
+		sortName = new DogNameCompare();
+		sortBreed = new DogBreedCompare();
+		sortAge = new DogAgeCompare();
+
 	}
 
 	public void combineLists() {
@@ -49,6 +59,28 @@ public class Logic {
 
 			dogs.get(i).draw(150 + (100 * i));
 		}
+	}
+
+	public void sortDogs(char keytosort) {
+		switch (keytosort) {
+
+		case 'a':
+			Collections.sort(dogs);
+			break;
+
+		case 's':
+			Collections.sort(dogs,sortName);
+			break;
+
+		case 'd':
+			Collections.sort(dogs,sortBreed);
+			break;
+
+		case 'f':
+			Collections.sort(dogs,sortAge);
+			break;
+		}
+
 	}
 
 }
